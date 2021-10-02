@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
     #region State
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
     // The transform of the interaction cursor.
     public Transform InteractCursor;
 
-    public Rigidbody2D Rigidbody;
+    private Rigidbody2D Rigidbody;
 
     #endregion State
 
@@ -124,6 +125,8 @@ public class Player : MonoBehaviour
     {  
         // Player looks down on init.
         LookDirection = new Vector3(0, -1, 0);
+
+        Rigidbody = GetComponent<Rigidbody2D>();
     }
 
     private void UpdateMovement()
