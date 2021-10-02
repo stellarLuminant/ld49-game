@@ -20,6 +20,12 @@ TextureImporter:
   - first:
       213: 4259554660099097378
     second: prototype-selection
+  - first:
+      213: -5807672711746099531
+    second: prototype-door-locked
+  - first:
+      213: 171123788198533881
+    second: prototype-door-open
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -238,6 +244,48 @@ TextureImporter:
       bones: []
       spriteID: 2230190356afc1b30800000000000000
       internalID: 4259554660099097378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prototype-door-locked
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b6e4a46070076fa0800000000000000
+      internalID: -5807672711746099531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prototype-door-open
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa5130cd24ff5200800000000000000
+      internalID: 171123788198533881
       vertices: []
       indices: 
       edges: []
