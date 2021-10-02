@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Box : Interactable
 {
     // Time it takes for the box to move to its destination.
@@ -17,7 +18,7 @@ public class Box : Interactable
     private Single PushVelocityX;
     private Single PushVelocityY;
 
-    public Rigidbody2D Rigidbody;
+    private Rigidbody2D Rigidbody;
 
     public override bool Interact(Vector3 direction)
     {
@@ -43,19 +44,22 @@ public class Box : Interactable
         PushDestination = transform.position;
         PushVelocityX = 0;
         PushVelocityY = 0;
+
+        Rigidbody = GetComponent<Rigidbody2D>();
     }
 
     private void UpdateMovement(Single time)
     {
-        var diff = PushDestination - transform.position;
+        var pushDest = new Vector2(PushDestination.x, PushDestination.y);
+        var diff = pushDest - Rigidbody.position;
 
-        if (diff == Vector3.zero)
+        if (diff == Vector2.zero)
             return;
         
-        var x = Mathf.SmoothDamp(transform.position.x, PushDestination.x, ref PushVelocityX, PushTime, Mathf.Infinity, time);
-        var y = Mathf.SmoothDamp(transform.position.y, PushDestination.y, ref PushVelocityY, PushTime, Mathf.Infinity, time);
+        var x = Mathf.SmoothDamp(Rigidbody.position.x, pushDest.x, ref PushVelocityX, PushTime, Mathf.Infinity, time);
+        var y = Mathf.SmoothDamp(Rigidbody.position.y, pushDest.y, ref PushVelocityY, PushTime, Mathf.Infinity, time);
 
-        transform.position = new Vector3(x, y, transform.position.z);
+        Rigidbody.position = new Vector2(x, y);
     }
 
     private void FixedUpdate()
