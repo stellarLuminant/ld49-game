@@ -12,8 +12,6 @@ public class Trigger : MonoBehaviour
     void Start()
     {
         On = false;
-
-        Debug.Assert(GlowSpriteRenderer == null);
     }
 
     private void Update()
