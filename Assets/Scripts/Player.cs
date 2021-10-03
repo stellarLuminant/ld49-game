@@ -106,17 +106,17 @@ public class Player : MonoBehaviour
     // Sets the LookDirection to MoveDirection if it is non-zero and non-diagonal
     private void SetLookDirection(Vector3 moveDir)
     {
+        if (moveDir == Vector3.zero)
+            return;
+
+        Animator.SetFloat("Horizontal", moveDir.x);
+        Animator.SetFloat("Vertical", moveDir.y);
+
         // ignore if movement is diagonal
         if (moveDir.x != 0 && moveDir.y != 0)
             return;
 
-        if (moveDir == Vector3.zero)
-            return;
-        
         LookDirection = moveDir;
-
-        Animator.SetFloat("Horizontal", moveDir.x);
-        Animator.SetFloat("Vertical", moveDir.y);
     }
 
     private Interactable CheckInteractable(Vector3 pos)

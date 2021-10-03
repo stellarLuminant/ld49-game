@@ -105,7 +105,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!61 &5698576891584935550
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
   Input_MoveDown: 1201000073000000
   Input_MoveLeft: 1401000061000000
   Input_MoveRight: 1301000064000000
-  Input_Interact: 200000000d000000
+  Input_Interact: 200000000d0000007a000000
   InteractCursor: {fileID: 5698576891681907111}
 --- !u!114 &9119771933274039039
 MonoBehaviour:

@@ -14,12 +14,14 @@ public class SmoothFollow : MonoBehaviour
 
     private void Update()
     {
-        Vector3 displacement = Target.position - (transform.position - Offset);
+        if (Target) { 
+            Vector3 displacement = Target.position - (transform.position - Offset);
 
-        Single x = Mathf.SmoothStep(0, displacement.x, Factor);
-        Single y = Mathf.SmoothStep(0, displacement.y, Factor);
-        Single z = Mathf.SmoothStep(0, displacement.z, Factor);
+            Single x = Mathf.SmoothStep(0, displacement.x, Factor);
+            Single y = Mathf.SmoothStep(0, displacement.y, Factor);
+            Single z = Mathf.SmoothStep(0, displacement.z, Factor);
 
-        transform.position = transform.position + new Vector3(x, y, z);
+            transform.position = transform.position + new Vector3(x, y, z);
+        }
     }
 }
