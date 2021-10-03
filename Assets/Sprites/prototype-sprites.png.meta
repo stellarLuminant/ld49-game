@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: 171123788198533881
     second: prototype-door-open
+  - first:
+      213: -4804074351999021379
+    second: prototype-dim
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -278,7 +281,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -286,6 +289,27 @@ TextureImporter:
       bones: []
       spriteID: 9fa5130cd24ff5200800000000000000
       internalID: 171123788198533881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: prototype-dim
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbe888674df745db0800000000000000
+      internalID: -4804074351999021379
       vertices: []
       indices: 
       edges: []

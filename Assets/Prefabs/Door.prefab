@@ -99,3 +99,7 @@ MonoBehaviour:
   OnLastFrame: 0
   Triggers:
   - {fileID: 0}
+  LockedSprite: {fileID: -5807672711746099531, guid: 980cc693df375124f90faa1a01fd4b98,
+    type: 3}
+  UnlockedSprite: {fileID: 171123788198533881, guid: 980cc693df375124f90faa1a01fd4b98,
+    type: 3}

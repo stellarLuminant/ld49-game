@@ -2,22 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class Door : Triggerable
 {
+    public Sprite LockedSprite;
+    public Sprite UnlockedSprite;
+
+    private SpriteRenderer _renderer;
+
     // Start is called before the first frame update
     private void Start()
     {
+        _renderer = GetComponent<SpriteRenderer>();
+        _renderer.sprite = LockedSprite;
     }
 
     // Code that runs on the frame when all triggers turn on.
     public override void OnTriggerActivate() 
     {
+        _renderer.sprite = UnlockedSprite;
         // TODO: Open the door, change sprite.
     }
 
     // Code that runs on teh frame when any trigger turns off.
     public override void OnTriggerDeactivate()
     {
+        _renderer.sprite = LockedSprite;
         // TODO: Close the door, change sprite.
     }
 
