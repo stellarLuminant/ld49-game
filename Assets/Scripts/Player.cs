@@ -109,14 +109,15 @@ public class Player : MonoBehaviour
         if (moveDir == Vector3.zero)
             return;
 
-        Animator.SetFloat("Horizontal", moveDir.x);
-        Animator.SetFloat("Vertical", moveDir.y);
-
         // ignore if movement is diagonal
         if (moveDir.x != 0 && moveDir.y != 0)
             return;
 
+        Animator.SetFloat("Horizontal", moveDir.x);
+        Animator.SetFloat("Vertical", moveDir.y);
+
         LookDirection = moveDir;
+        InteractCursor.position = GetInteractCursorPosition();
     }
 
     private Interactable CheckInteractable(Vector3 pos)
@@ -150,21 +151,28 @@ public class Player : MonoBehaviour
 
     private void UpdateMovement()
     {
+        OldPosition = Rigidbody.position;
         Vector3 moveDir = GetMoveDirection();
         Rigidbody.velocity = moveDir * MoveSpeed;
         SetLookDirection(moveDir);
-        InteractCursor.localPosition = GetInteractCursorPosition();
+    }
 
+    private void UpdateAnimation()
+    {
+        Vector3 moveDir = GetMoveDirection();
         if (moveDir == Vector3.zero)
         {
             Animator.Play("Idle");
-        } else if (IsApproximately(OldPosition, transform.position))
+            return;
+        }
+
+        if (IsApproximately(OldPosition, Rigidbody.position))
         {
             Animator.Play("Push");
-        } else
-        {
-            Animator.Play("Movement");
+            return;
         }
+
+        Animator.Play("Movement");
     }
 
     private void UpdateInteraction(Single time)
@@ -183,13 +191,12 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         UpdateMovement();
-
-        OldPosition = transform.position;
     }
 
     // Update is called once per frame
     private void Update()
     {
+        UpdateAnimation();
         UpdateInteraction(Time.time);
     }
 
