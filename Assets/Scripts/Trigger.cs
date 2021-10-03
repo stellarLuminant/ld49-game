@@ -6,10 +6,25 @@ public class Trigger : MonoBehaviour
 {
     public bool On;
 
+    public SpriteRenderer GlowSpriteRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
         On = false;
+
+        Debug.Assert(GlowSpriteRenderer == null);
+    }
+
+    private void Update()
+    {
+        if (On)
+        {
+            GlowSpriteRenderer.enabled = true;
+        } else
+        {
+            GlowSpriteRenderer.enabled = false;
+        }
     }
 
     private void FixedUpdate()
