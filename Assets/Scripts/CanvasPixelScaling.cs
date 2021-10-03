@@ -56,7 +56,10 @@ public class CanvasPixelScaling : MonoBehaviour
 
 		if (textMeshProUGUI)
         {
-			textMeshProUGUI.SetText($"isScaling: {isScaling}\nratio: {pixelCamera.pixelRatio}\n");
+			if (shouldScalePixelPerfectly)
+				textMeshProUGUI.SetText($"isScaling: {isScaling}\nratio: {pixelCamera.pixelRatio}\n");
+			else
+				textMeshProUGUI.SetText("bleh");
         }
 	}
 

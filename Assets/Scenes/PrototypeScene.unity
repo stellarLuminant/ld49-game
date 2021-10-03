@@ -1318,11 +1318,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'isScaling: False
-
-    ratio: 3
-
-'
+  m_text: bleh
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7db272d12feb046459ab1046b52173b9, type: 2}
   m_sharedMaterial: {fileID: 1095527591571218497, guid: 7db272d12feb046459ab1046b52173b9,
@@ -1641,7 +1637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1135223832
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1659,7 +1655,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 9680, y: 9820}
+  m_SizeDelta: {x: 32, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1135223833
 MonoBehaviour:
@@ -2625,6 +2621,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698576891584935551, guid: a17766e9aea4f4c4c9e588dcce2d1ca0,
+        type: 3}
+      propertyPath: Input_Interact.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698576891584935551, guid: a17766e9aea4f4c4c9e588dcce2d1ca0,
+        type: 3}
+      propertyPath: Input_Interact.Array.data[2]
+      value: 122
       objectReference: {fileID: 0}
     - target: {fileID: 6837368323219620830, guid: a17766e9aea4f4c4c9e588dcce2d1ca0,
         type: 3}

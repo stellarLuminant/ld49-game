@@ -9,10 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5698576891584935520}
+  - component: {fileID: 2977171069878621708}
   - component: {fileID: 68046702}
   - component: {fileID: 5698576891584935550}
   - component: {fileID: 5698576891584935549}
   - component: {fileID: 5698576891584935551}
+  - component: {fileID: 9119771933274039039}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -34,6 +36,25 @@ Transform:
   m_Father: {fileID: 2376811772726467436}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2977171069878621708
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5698576891584935522}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2497ae5a24e8f604aa9227436c512e54, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &68046702
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -73,13 +94,13 @@ SpriteRenderer:
   m_SortingLayerID: 605391465
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -109785498787058901, guid: 980cc693df375124f90faa1a01fd4b98,
+  m_Sprite: {fileID: -105495607938174142, guid: 4823d2878cd250249b4c2fd13aa32613,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -101,9 +122,9 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.33333334}
+    oldSize: {x: 1, y: 1.5}
+    newSize: {x: 1, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -154,6 +175,18 @@ MonoBehaviour:
   Input_MoveRight: 1301000064000000
   Input_Interact: 200000000d000000
   InteractCursor: {fileID: 5698576891681907111}
+--- !u!114 &9119771933274039039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5698576891584935522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 288402841eb2cea4585a89cc2572a469, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5698576891681907113
 GameObject:
   m_ObjectHideFlags: 0

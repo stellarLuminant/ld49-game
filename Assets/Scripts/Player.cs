@@ -32,6 +32,11 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D Rigidbody;
 
+    private Animator Animator;
+
+    // The position the player was last frame.
+    private Vector2 OldPosition;
+
     #endregion State
 
     #region Helpers
@@ -109,24 +114,38 @@ public class Player : MonoBehaviour
             return;
         
         LookDirection = moveDir;
+
+        Animator.SetFloat("Horizontal", moveDir.x);
+        Animator.SetFloat("Vertical", moveDir.y);
     }
 
     private Interactable CheckInteractable(Vector3 pos)
     {
         return Utils.CastForObjectOnTile(pos)?.GetComponent<Interactable>();
     }
-    
+
+    private bool IsApproximately(Vector2 a, Vector2 b, float range = 0.001f)
+    {
+        return IsApproximately(a.x, b.x) && IsApproximately(a.y, b.y);
+    }
+
+    private bool IsApproximately(float a, float b, float range = 0.001f)
+    {
+        return Math.Abs(b - a) < range;
+    }
+
     #endregion Helpers
 
     #region Unity Behaviour
-    
+
     // Start is called before the first frame update
     private void Start()
-    {  
-        // Player looks down on init.
-        LookDirection = new Vector3(0, -1, 0);
-
+    {
+        Animator = GetComponent<Animator>();
         Rigidbody = GetComponent<Rigidbody2D>();
+
+        // Player looks down on init.
+        SetLookDirection(new Vector3(0, -1, 0));
     }
 
     private void UpdateMovement()
@@ -135,6 +154,17 @@ public class Player : MonoBehaviour
         Rigidbody.velocity = moveDir * MoveSpeed;
         SetLookDirection(moveDir);
         InteractCursor.localPosition = GetInteractCursorPosition();
+
+        if (moveDir == Vector3.zero)
+        {
+            Animator.Play("Idle");
+        } else if (IsApproximately(OldPosition, transform.position))
+        {
+            Animator.Play("Push");
+        } else
+        {
+            Animator.Play("Movement");
+        }
     }
 
     private void UpdateInteraction(Single time)
@@ -153,6 +183,8 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         UpdateMovement();
+
+        OldPosition = transform.position;
     }
 
     // Update is called once per frame
