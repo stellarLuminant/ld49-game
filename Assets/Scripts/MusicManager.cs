@@ -16,7 +16,7 @@ public class MusicManager : MonoBehaviour
         set
         {
             if (_state == value) return;
-            PlayMusic(_state);
+            PlayMusic(value);
             _state = value;
         }
     }
@@ -76,7 +76,7 @@ public class MusicManager : MonoBehaviour
 
     IEnumerator PlayMusic(AudioClip clip, float volume, float fadeInSeconds = 0f, float fadeOutSeconds = 0f)
     {
-        musicSourceId = PlayMusic(clip, volume, false, false, fadeInSeconds, fadeOutSeconds);
+        musicSourceId = PlayMusic(clip, volume, false, true, fadeInSeconds, fadeOutSeconds);
 
         // Safety because I don't trust myself
         var iterations = 0;

@@ -10,6 +10,6 @@ public class PlayAudioOnStart : MonoBehaviour
     {
         var musicManager = MusicManager.Instance;
         if (musicManager.State != State)
-            musicManager.PlayMusic(State);
+            musicManager.State = State;
     }
 }
