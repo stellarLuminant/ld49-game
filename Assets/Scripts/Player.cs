@@ -109,12 +109,13 @@ public class Player : MonoBehaviour
         if (moveDir == Vector3.zero)
             return;
 
+        // Animator should know the direction the player is going, including diagonals
+        Animator.SetFloat("Horizontal", moveDir.x);
+        Animator.SetFloat("Vertical", moveDir.y);
+
         // ignore if movement is diagonal
         if (moveDir.x != 0 && moveDir.y != 0)
             return;
-
-        Animator.SetFloat("Horizontal", moveDir.x);
-        Animator.SetFloat("Vertical", moveDir.y);
 
         LookDirection = moveDir;
         InteractCursor.position = GetInteractCursorPosition();

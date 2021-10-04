@@ -28,6 +28,15 @@ public static class Utils
         return false;
     }
 
+    public static bool CheckInputsLifted(KeyCode[] keys)
+    {
+        foreach (KeyCode key in keys)
+            if (Input.GetKeyUp(key))
+                return true;
+
+        return false;
+    }
+
     private static Vector2 CollisionBoxSize = new Vector2(0.125f, 0.125f);
     private static Single CollisionBoxAngle = 0;
     private static Vector2 CollisionBoxDirection = new Vector2(1, 0);

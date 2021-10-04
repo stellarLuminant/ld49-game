@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [ExecuteInEditMode]
@@ -17,8 +18,10 @@ public class CanvasPixelScaling : MonoBehaviour
 	public bool isScaling;
 	public TextMeshProUGUI textMeshProUGUI;
 
-	void OnEnable()
+	private void OnEnable()
 	{
+		SceneManager.sceneLoaded += OnSceneLoaded;
+
 		Assert.IsNotNull(BasePixelCanvas, "BasePixelCanvas wasn't set!");
 
 		pixelCamera = FindObjectOfType<PixelPerfectCamera>();
@@ -33,6 +36,17 @@ public class CanvasPixelScaling : MonoBehaviour
 			scaler.uiScaleMode = CanvasScaler.ScaleMode.ConstantPixelSize;
 		}
 	}
+
+	private void OnDisable()
+	{
+		SceneManager.sceneLoaded -= OnSceneLoaded;
+	}
+
+	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+	{
+		OnEnable();
+	}
+
 
 	// Update is called once per frame
 	void Update()
@@ -57,9 +71,13 @@ public class CanvasPixelScaling : MonoBehaviour
 		if (textMeshProUGUI)
         {
 			if (shouldScalePixelPerfectly)
-				textMeshProUGUI.SetText($"isScaling: {isScaling}\nratio: {pixelCamera.pixelRatio}\n");
+				textMeshProUGUI.SetText($"Pixel Camera Debugging\n" +
+					$"isScaling: {isScaling}\n" +
+					$"pixelCamera exists: {pixelCamera != null}\n" +
+					$"ratio: {pixelCamera.pixelRatio}\n");
 			else
-				textMeshProUGUI.SetText("bleh");
+				textMeshProUGUI.SetText($"Pixel Camera Debugging\n" +
+					$"bleh");
         }
 	}
 
