@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2255535980259068087}
   - component: {fileID: 2255535980259068084}
   m_Layer: 0
-  m_Name: Music
+  m_Name: MusicManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   BeginningCutsceneVolume: 1
   GameMusic: {fileID: 8300000, guid: d99c184d6c92d4e4db51e1f8d04f415f, type: 3}
   GameMusicVolume: 1
-  EndCutsceneMusic: {fileID: 8300000, guid: 15a371a3ee997c64b87e8c10dee902d6, type: 3}
+  EndCutsceneMusic: {fileID: 8300000, guid: f78f01b8da5ae254ba1b3cdae6111305, type: 3}
   EndCutsceneVolume: 1
   MusicTailLength: 2.5
   StartMusicByDefault: 0

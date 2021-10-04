@@ -52,7 +52,7 @@ public class Door : Triggerable
         Audio audio = EazySoundManager.GetAudio(_audioId);
         if (audio == null)
         {
-            _audioId = EazySoundManager.PlaySound(OpenClip, Volume, true, transform);
+            _audioId = EazySoundManager.PlaySound(OpenClip, Volume, false, transform);
             audio = EazySoundManager.GetAudio(_audioId);
             audio.Min3DDistance = 10f;
             audio.Max3DDistance = 20f;

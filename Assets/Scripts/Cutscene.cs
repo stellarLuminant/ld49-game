@@ -74,7 +74,7 @@ public class Cutscene : MonoBehaviour
             if (JankMusicChange && i == JankMusicChangeIndex)
             {
                 music.StopMusic();
-                music.PlayMusic(MusicManager.MusicState.End);
+                music.State = MusicManager.MusicState.End;
             }
 
             var newImage = CutsceneImages[i];

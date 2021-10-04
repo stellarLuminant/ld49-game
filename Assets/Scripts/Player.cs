@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     public KeyCode[] Input_MoveRight;
     public KeyCode[] Input_Interact;
     public KeyCode[] Input_Restart = { KeyCode.R };
+    public KeyCode[] Input_I_Give_Up = { KeyCode.End };
 
     // The transform of the interaction cursor.
     public Transform InteractCursor;
@@ -206,7 +207,7 @@ public class Player : MonoBehaviour
             TimeToNextInteract = time + SuccessfulInteractCooldown;
     }
 
-    private void UpdateRestart()
+    private void UpdateOtherKeys()
     {
         if (!CanMove)
             return;
@@ -218,7 +219,13 @@ public class Player : MonoBehaviour
             fadeManager.FadeIn(uIManager.StartFadeTime, Color.black);
             SceneManager.LoadScene(GameManager.LevelScenes[GameManager.CurrentLevel]);
         }
+
+        if (Utils.CheckInputsPressed(Input_I_Give_Up))
+        {
+            FindObjectOfType<Door>().LoadNewLevel(this);
+        }
     }
+
     // FixedUpdate is called once per physics update
     private void FixedUpdate()
     {
@@ -230,7 +237,7 @@ public class Player : MonoBehaviour
     {
         UpdateAnimation();
         UpdateInteraction(Time.time);
-        UpdateRestart();
+        UpdateOtherKeys();
     }
 
     #endregion Unity Behaviour
