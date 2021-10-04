@@ -1309,6 +1309,7 @@ MonoBehaviour:
   GameUI: {fileID: 679719411}
   PauseScreen: {fileID: 78663275}
   PlayButton: {fileID: 438694910230085769}
+  TutorialText: {fileID: 1428356843802417097}
   FadeManager: {fileID: 248340920115594272}
   StartFadeTime: 1.5
   ForcedSetGameState: 0

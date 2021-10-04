@@ -5,32 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class TutorialText : MonoBehaviour
 {
-    public void Logic()
+    public void ShowText(bool forceHide = false)
     {
         var levelContext = FindObjectOfType<LevelContext>();
         bool shouldShow = levelContext ? levelContext.LevelNumber == 0 : false;
+
+        if (forceHide) shouldShow = false;
         gameObject.SetActive(shouldShow);
     }
 
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        Logic();
-    }
 
     // Start is called before the first frame update
     void Start()
     {
-        Logic();
+        
     }
 
     // Update is called once per frame
