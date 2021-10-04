@@ -139,6 +139,7 @@ public class Door : Triggerable
             SceneManager.LoadScene(GameManager.LevelScenes[GameManager.CurrentLevel + 1]);
             FadeManager.instance.FadeIn(FadeOutTime, Color.white);
             UIManager.Instance.TutorialText.ShowText(true);
+            UIManager.Instance.LevelNameText.ShowText();
         }
     }
 }

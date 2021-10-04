@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    public enum GameState { Title, Cutscene, Game, Pause }
+    public enum GameState { Title, Cutscene, Game }
     public GameState State
     {
         get { return _state; }
@@ -26,9 +26,9 @@ public class UIManager : MonoBehaviour
     [Header("UI Elements")]
     public GameObject TitleScreen;
     public GameObject GameUI;
-    public GameObject PauseScreen;
     public Button PlayButton;
     public TutorialText TutorialText;
+    public LevelNameText LevelNameText;
 
     [Header("Fade Manager")]
     public FadeManager FadeManager;
@@ -55,7 +55,6 @@ public class UIManager : MonoBehaviour
             case GameState.Title:
                 TitleScreen.SetActive(activeState);
                 GameUI.SetActive(!activeState);
-                PauseScreen.SetActive(!activeState);
                 Time.timeScale = 1;
 
                 PlayButton.Select();
@@ -64,19 +63,13 @@ public class UIManager : MonoBehaviour
             case GameState.Cutscene:
                 TitleScreen.SetActive(!activeState);
                 GameUI.SetActive(!activeState);
-                PauseScreen.SetActive(!activeState);
                 Time.timeScale = 1;
 
                 break;
             case GameState.Game:
                 TitleScreen.SetActive(!activeState);
                 GameUI.SetActive(activeState);
-                PauseScreen.SetActive(!activeState);
                 Time.timeScale = 1;
-                break;
-            case GameState.Pause:
-                PauseScreen.SetActive(activeState);
-                Time.timeScale = 0;
                 break;
             default:
                 Debug.LogError("wtf");
