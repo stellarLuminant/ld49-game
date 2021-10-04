@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/05.Stairs.unity
     guid: 5adbf2be1ee84d3429369a7d154ceb34
   - enabled: 1
+    path: Assets/Scenes/06.Blockade.unity
+    guid: 1193dcfcd241cc54babd88bf5fe87738
+  - enabled: 1
     path: Assets/Scenes/StoryEnd.unity
     guid: 7b5b3cddf92834f46a256d81463a1466
   m_configObjects: {}

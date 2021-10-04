@@ -15,7 +15,8 @@ public class LevelNameText : MonoBehaviour
         { 1, "Tree" },
         { 2, "Passages" },
         { 3, "Tunnel" },
-        { 4, "Stairs" }
+        { 4, "Stairs" },
+        { 5, "Blockade" }
     };
 
     private static String GetLevelName(Int32 levelNumber)
