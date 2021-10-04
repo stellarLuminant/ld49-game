@@ -12,9 +12,11 @@ public class Cutscene : MonoBehaviour
     public float ImageHeldLength = 2f;
     public float ImageReleaseLength = 2f;
     public float WaitAfterFinished = 1f;
+
+    public UIManager.GameState NewSceneState = UIManager.GameState.Game;
     public string SceneName;
     
-    public bool JankMusicChange = true;
+    public bool JankMusicChange = false;
     public int JankMusicChangeIndex = 3;
 
     [Header("Inputs")]
@@ -135,6 +137,7 @@ public class Cutscene : MonoBehaviour
         yield return new WaitForSeconds(WaitAfterFinished);
 
         Debug.Log("Transitioning...");
+        UIManager.Instance.State = NewSceneState;
         SceneManager.LoadScene(SceneName);
     }
 }

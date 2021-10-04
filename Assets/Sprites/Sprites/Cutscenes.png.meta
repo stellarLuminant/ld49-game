@@ -26,6 +26,12 @@ TextureImporter:
   - first:
       213: 7419161738181130205
     second: Cutscenes 7
+  - first:
+      213: 3533057708608946038
+    second: Cutscenes 8
+  - first:
+      213: -1961411054444910606
+    second: Cutscenes 9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -85,7 +91,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 456
+    maxTextureSize: 608
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -165,8 +171,8 @@ TextureImporter:
       name: Cutscenes 3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
+        x: 456
+        y: 192
         width: 152
         height: 96
       alignment: 0
@@ -186,7 +192,7 @@ TextureImporter:
       name: Cutscenes 4
       rect:
         serializedVersion: 2
-        x: 152
+        x: 0
         y: 96
         width: 152
         height: 96
@@ -207,7 +213,7 @@ TextureImporter:
       name: Cutscenes 5
       rect:
         serializedVersion: 2
-        x: 304
+        x: 152
         y: 96
         width: 152
         height: 96
@@ -228,8 +234,8 @@ TextureImporter:
       name: Cutscenes 6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 304
+        y: 96
         width: 152
         height: 96
       alignment: 0
@@ -249,8 +255,8 @@ TextureImporter:
       name: Cutscenes 7
       rect:
         serializedVersion: 2
-        x: 152
-        y: 0
+        x: 456
+        y: 96
         width: 152
         height: 96
       alignment: 0
@@ -262,6 +268,48 @@ TextureImporter:
       bones: []
       spriteID: dd7b47fda4826f660800000000000000
       internalID: 7419161738181130205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cutscenes 8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 152
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67f779c5441f70130800000000000000
+      internalID: 3533057708608946038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cutscenes 9
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 152
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f76949b90ba7c4e0800000000000000
+      internalID: -1961411054444910606
       vertices: []
       indices: 
       edges: []
