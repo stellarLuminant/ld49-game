@@ -8,8 +8,8 @@ public class Door : Triggerable
     public Sprite LockedSprite;
     public Sprite UnlockedSprite;
 
-    public float LockedOpacity = 0.2f;
-    public float UnlockedOpacity = 0.8f;
+    public Color LockedColor = new Color(0, 0, 0, .5f);
+    public Color UnlockedColor = new Color(1, 1, 1, .8f);
 
     private SpriteRenderer _renderer;
 
@@ -24,7 +24,7 @@ public class Door : Triggerable
     public override void OnTriggerActivate() 
     {
         //_renderer.sprite = UnlockedSprite;
-        _renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, UnlockedOpacity);
+        _renderer.color = UnlockedColor;
         // TODO: Open the door, change sprite.
     }
 
@@ -32,7 +32,7 @@ public class Door : Triggerable
     public override void OnTriggerDeactivate()
     {
         //_renderer.sprite = LockedSprite;
-        _renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, LockedOpacity);
+        _renderer.color = LockedColor;
         // TODO: Close the door, change sprite.
     }
 
