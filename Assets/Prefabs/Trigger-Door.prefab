@@ -117,7 +117,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   On: 0
-  GlowSpriteRenderer: {fileID: 673410915039676432}
 --- !u!1 &2707967055315083653
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +190,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 4266539449291738496, guid: 5e394e19202d42d47acd2fe8710a0823,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.3764706}
+  m_Color: {r: 0.6948677, g: 0.6745098, b: 0.9607843, a: 0.3764706}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
