@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SmoothFollow : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class SmoothFollow : MonoBehaviour
 
     private void Start()
     {
-        Offset = transform.position - Target.position;
+        if (Target)
+            Offset = transform.position - Target.position;
     }
 
     private void Update()

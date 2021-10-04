@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
     public KeyCode[] Input_MoveLeft;
     public KeyCode[] Input_MoveRight;
     public KeyCode[] Input_Interact;
+    public KeyCode[] Input_Restart = { KeyCode.R };
 
     // The transform of the interaction cursor.
     public Transform InteractCursor;
@@ -36,6 +38,10 @@ public class Player : MonoBehaviour
 
     // The position the player was last frame.
     private Vector2 OldPosition;
+
+    public bool IsInTutorial;
+
+    public bool CanMove = true;
 
     #endregion State
 
@@ -52,6 +58,8 @@ public class Player : MonoBehaviour
     private bool IsMovingRight => Utils.CheckInputsHeld(Input_MoveRight);
 
     private bool IsInteracting => Utils.CheckInputsPressed(Input_Interact);
+
+    private bool IsRestarting => Utils.CheckInputsPressed(Input_Restart);
 
     private Vector3 GetVerticalMoveDirection()
     {
@@ -92,6 +100,8 @@ public class Player : MonoBehaviour
     private Vector3 GetMoveDirection()
     {
         Vector3 direction = GetVerticalMoveDirection() + GetHorizontalMoveDirection();
+
+        if (!CanMove) return Vector3.zero;
 
         return direction == Vector3.zero
             ? Vector3.zero
@@ -174,10 +184,18 @@ public class Player : MonoBehaviour
         }
 
         Animator.Play("Movement");
+
+        if (IsInTutorial)
+        {
+            Tutorial.CompletedMovement = true;
+        }
     }
 
     private void UpdateInteraction(Single time)
     {
+        if (!CanMove)
+            return;
+
         if (time < TimeToNextInteract)
             return;
         
@@ -188,6 +206,19 @@ public class Player : MonoBehaviour
             TimeToNextInteract = time + SuccessfulInteractCooldown;
     }
 
+    private void UpdateRestart()
+    {
+        if (!CanMove)
+            return;
+
+        if (IsRestarting)
+        {
+            var uIManager = UIManager.Instance;
+            var fadeManager = uIManager.FadeManager;
+            fadeManager.FadeIn(uIManager.StartFadeTime, Color.black);
+            SceneManager.LoadScene(GameManager.LevelScenes[GameManager.CurrentLevel]);
+        }
+    }
     // FixedUpdate is called once per physics update
     private void FixedUpdate()
     {
@@ -199,6 +230,7 @@ public class Player : MonoBehaviour
     {
         UpdateAnimation();
         UpdateInteraction(Time.time);
+        UpdateRestart();
     }
 
     #endregion Unity Behaviour

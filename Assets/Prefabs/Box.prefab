@@ -149,6 +149,13 @@ MonoBehaviour:
   PushDistance: 1
   PushEndTime: 0
   PushDestination: {x: 0, y: 0, z: 0}
+  AudioClips:
+  - {fileID: 8300000, guid: 45517d768dc06f143a68a02925d82ed0, type: 3}
+  - {fileID: 8300000, guid: 916422f49a60c384f8f8c44f2212fad2, type: 3}
+  - {fileID: 8300000, guid: d2ec03b76e5905248b7cb531d6b388c6, type: 3}
+  - {fileID: 8300000, guid: 80c0535e45572c548930fb3c2a880198, type: 3}
+  volume: 0.7
+  pitchVariation: 0.03
 --- !u!114 &9054808188625407588
 MonoBehaviour:
   m_ObjectHideFlags: 0

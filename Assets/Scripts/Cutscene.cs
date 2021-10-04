@@ -11,6 +11,8 @@ public class Cutscene : MonoBehaviour
     public CutsceneImage[] CutsceneImages;
     public float ImageHeldLength = 2f;
     public float ImageReleaseLength = 2f;
+
+    public float WaitBeforeStarting = .5f;
     public float WaitAfterFinished = 1f;
 
     public UIManager.GameState NewSceneState = UIManager.GameState.Game;
@@ -37,6 +39,11 @@ public class Cutscene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        var uIManager = UIManager.Instance;
+        uIManager.State = UIManager.GameState.Cutscene;
+        if (JankMusicChange)
+            uIManager.FadeManager.fadeGroup.alpha = 0;
+
         StartCoroutine(StartCutscene());
     }
 
@@ -59,9 +66,8 @@ public class Cutscene : MonoBehaviour
 
     private IEnumerator StartCutscene()
     {
+        bool firstTime = true;
         var music = MusicManager.Instance;
-
-        yield return new WaitForSeconds(0.2f);
 
         for (int i = 0; i < CutsceneImages.Length; i++)
         {
@@ -78,18 +84,27 @@ public class Cutscene : MonoBehaviour
                 Debug.LogWarning("Cutscene Image is missing! Skipping...");
                 continue;
             }
-
-            Debug.Log($"Showing element {newImage.name}");
-            newImage.Show();
-
+            
             // Waits either input, or time elapsed
             float timer = 0;
+            bool uwu = false;
             do
             {
                 timer += Time.deltaTime;
+
+                // Delays showing the image if it's the first time
+                if ((timer >= WaitBeforeStarting || !firstTime) && !uwu)
+                {
+                    Debug.Log($"Showing element {newImage.name} | {firstTime}");
+                    newImage.Show();
+                    uwu = true;
+                }
+
                 yield return null;
             }
             while (!(IsInteracting || timer > ImageHeldLength));
+
+            firstTime = false;
 
             // If interaction was done, hide the thing immediately since there's
             // no guarantee it's already shown
@@ -137,7 +152,9 @@ public class Cutscene : MonoBehaviour
         yield return new WaitForSeconds(WaitAfterFinished);
 
         Debug.Log("Transitioning...");
-        UIManager.Instance.State = NewSceneState;
         SceneManager.LoadScene(SceneName);
+        var uIManager = UIManager.Instance;
+        uIManager.FadeManager.FadeIn(uIManager.StartFadeTime, Color.black);
+        uIManager.State = NewSceneState;
     }
 }

@@ -21,12 +21,16 @@ public class CanvasPixelScaling : MonoBehaviour
 	private void OnEnable()
 	{
 		SceneManager.sceneLoaded += OnSceneLoaded;
+		Pain();
+	}
 
+	void Pain()
+    {
 		Assert.IsNotNull(BasePixelCanvas, "BasePixelCanvas wasn't set!");
 
 		pixelCamera = FindObjectOfType<PixelPerfectCamera>();
 		Assert.IsNotNull(pixelCamera, "PixelPerfectCamera wasn't set!");
-		
+
 		scaler = GetComponent<CanvasScaler>();
 		Assert.IsNotNull(scaler, "CanvasScaler wasn't set!");
 
@@ -44,7 +48,7 @@ public class CanvasPixelScaling : MonoBehaviour
 
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
-		OnEnable();
+		Pain();
 	}
 
 

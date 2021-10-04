@@ -6,7 +6,7 @@ public class Play : MonoBehaviour
     public void OnButtonPressed()
     {
         GameManager.CurrentLevel = 0;
-        UIManager.Instance.State = UIManager.GameState.Cutscene;
         SceneManager.LoadScene(GameManager.StoryStartScene);
+        UIManager.Instance.State = UIManager.GameState.Cutscene;
     }
 }

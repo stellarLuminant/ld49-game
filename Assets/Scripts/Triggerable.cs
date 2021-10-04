@@ -24,7 +24,7 @@ public class Triggerable : MonoBehaviour
         {
             if (!t.On)
             {
-                Debug.Log("One of the triggers was off");
+                //Debug.Log("One of the triggers was off");
                 On = false;
                 break;
             }

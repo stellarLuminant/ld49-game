@@ -47,7 +47,9 @@ MonoBehaviour:
   CutsceneImages: []
   ImageHeldLength: 2
   ImageReleaseLength: 2
+  WaitBeforeStarting: 1
   WaitAfterFinished: 2
+  NewSceneState: 2
   SceneName: 
   JankMusicChange: 1
   JankMusicChangeIndex: 2

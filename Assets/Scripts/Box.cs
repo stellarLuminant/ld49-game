@@ -20,6 +20,12 @@ public class Box : Interactable
 
     private Rigidbody2D Rigidbody;
 
+    public AudioClip[] AudioClips;
+    public float Volume = .7f;
+    public float PitchVariation = .03f;
+
+    public bool IsInTutorial;
+
     public override bool Interact(Vector3 direction)
     {
         // Still currently being pushed?
@@ -34,7 +40,18 @@ public class Box : Interactable
         
         PushEndTime = Time.fixedTime + PushTime;
         PushDestination = destination;
- 
+
+        // Play audio
+        SoundHelper.PlayRandomSound(
+            AudioClips,
+            Volume,
+            PitchVariation);
+
+        if (IsInTutorial)
+        {
+            Tutorial.CompletedPush = true;
+        }
+
         return true;
     }
 

@@ -141,3 +141,5 @@ MonoBehaviour:
     type: 3}
   LockedColor: {r: 0, g: 0, b: 0, a: 0.8}
   UnlockedColor: {r: 1, g: 1, b: 1, a: 0.8}
+  OpenClip: {fileID: 8300000, guid: f5a266280ddd62a4f8e64bb4d751e8cd, type: 3}
+  Volume: 1

@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    public enum GameState { Title, Cutscene, Game }
+    public enum GameState { Title, Cutscene, Game, Pause }
     public GameState State
     {
         get { return _state; }
@@ -24,6 +26,11 @@ public class UIManager : MonoBehaviour
     public GameObject TitleScreen;
     public GameObject GameUI;
     public GameObject PauseScreen;
+    public Button PlayButton;
+
+    [Header("Fade Manager")]
+    public FadeManager FadeManager;
+    public float StartFadeTime = 1.5f;
 
     [Header("Debug")]
     public GameState ForcedSetGameState;
@@ -34,35 +41,45 @@ public class UIManager : MonoBehaviour
         Array values = Enum.GetValues(typeof(GameState));
         foreach (GameState val in values)
         {
-            if (newState == val)
-            {
-                continue;
-            }
-
-            bool activeState = true;
-            switch (newState)
-            {
-                case GameState.Title:
-                    TitleScreen.SetActive(activeState);
-                    GameUI.SetActive(!activeState);
-                    PauseScreen.SetActive(false);
-                    break;
-                case GameState.Cutscene:
-                    TitleScreen.SetActive(!activeState);
-                    GameUI.SetActive(!activeState);
-                    PauseScreen.SetActive(false);
-                    break;
-                case GameState.Game:
-                    TitleScreen.SetActive(!activeState);
-                    GameUI.SetActive(activeState);
-                    PauseScreen.SetActive(false);
-                    break;
-                default:
-                    Debug.LogError("wtf");
-                    break;
-            }
+            //if (newState == val)
+            //{
+            //    continue;
+            //}
         }
 
+        bool activeState = true;
+        switch (newState)
+        {
+            case GameState.Title:
+                TitleScreen.SetActive(activeState);
+                GameUI.SetActive(!activeState);
+                PauseScreen.SetActive(!activeState);
+                Time.timeScale = 1;
+
+                PlayButton.Select();
+                Tutorial.Reset();
+                break;
+            case GameState.Cutscene:
+                TitleScreen.SetActive(!activeState);
+                GameUI.SetActive(!activeState);
+                PauseScreen.SetActive(!activeState);
+                Time.timeScale = 1;
+
+                break;
+            case GameState.Game:
+                TitleScreen.SetActive(!activeState);
+                GameUI.SetActive(activeState);
+                PauseScreen.SetActive(!activeState);
+                Time.timeScale = 1;
+                break;
+            case GameState.Pause:
+                PauseScreen.SetActive(activeState);
+                Time.timeScale = 0;
+                break;
+            default:
+                Debug.LogError("wtf");
+                break;
+        }
     }
 
     #region Unity events

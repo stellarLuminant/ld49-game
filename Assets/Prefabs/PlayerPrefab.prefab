@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 5698576891584935549}
   - component: {fileID: 5698576891584935551}
   - component: {fileID: 9119771933274039039}
+  - component: {fileID: 2782281520302797261}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,7 +123,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.33333334}
+    pivot: {x: 0.5, y: 0.2916667}
     oldSize: {x: 1, y: 1.5}
     newSize: {x: 1, y: 1.5}
     adaptiveTilingThreshold: 0.5
@@ -175,6 +176,8 @@ MonoBehaviour:
   Input_MoveRight: 1301000064000000
   Input_Interact: 200000000d0000007a000000
   InteractCursor: {fileID: 5698576891681907111}
+  IsInTutorial: 0
+  CanMove: 1
 --- !u!114 &9119771933274039039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +190,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 288402841eb2cea4585a89cc2572a469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2782281520302797261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5698576891584935522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38d98c0e8618cae4588a14200ec4b1bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioStep:
+  - stepClip: {fileID: 8300000, guid: 88b86f5493995174c86dd02b36d4fb2e, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+  - stepClip: {fileID: 8300000, guid: dfc843e48bba0ad4697aa1d6e0b887ac, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+  - stepClip: {fileID: 8300000, guid: 3ecf06ee19adeba478e5d31fdc638bf7, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+  - stepClip: {fileID: 8300000, guid: cf0372dd9e431124a98a799343a7cabb, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+  - stepClip: {fileID: 8300000, guid: 24b67193d73661744bd0c5f9b920bbdd, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+  - stepClip: {fileID: 8300000, guid: be161bd054d69ae4e98b6750b638a904, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+  - stepClip: {fileID: 8300000, guid: a323c37b724e45c45974e302acc6a69e, type: 3}
+    volume: 1
+    pitchVariation: 0.05
+  - stepClip: {fileID: 8300000, guid: 0ab55d79fed240941a6d3d19852f71c6, type: 3}
+    volume: 1
+    pitchVariation: 0.05
 --- !u!1 &5698576891681907113
 GameObject:
   m_ObjectHideFlags: 0
