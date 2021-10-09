@@ -32,7 +32,7 @@ public class Box : Interactable
         if (Time.fixedTime < PushEndTime)
             return false;
 
-        Vector3 destination = Utils.ToGridPosition(transform.position) + direction;
+        Vector3 destination = Utils.ToGridPosition(transform.position + direction);
 
         // The destination is not an empty tile...
         if (!Utils.IsTileEmpty(destination))
