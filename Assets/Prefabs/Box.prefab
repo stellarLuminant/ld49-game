@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d242e66b249aa04a9ec87e2ba6e35e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PushTime: 0.1875
+  PushTime: 0.0625
   PushDistance: 1
   PushEndTime: 0
   PushDestination: {x: 0, y: 0, z: 0}

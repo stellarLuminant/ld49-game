@@ -93,7 +93,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 605391465
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -105495607938174142, guid: 4823d2878cd250249b4c2fd13aa32613,
     type: 3}
@@ -166,8 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc7245f345ff1cd46b08a6372e326401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 5
-  SuccessfulInteractCooldown: 0.375
+  MoveSpeed: 4.75
+  SuccessfulInteractCooldown: 0.125
   TimeToNextInteract: 0
   LookDirection: {x: 0, y: 0, z: 0}
   Input_MoveUp: 1101000077000000
@@ -175,6 +175,8 @@ MonoBehaviour:
   Input_MoveLeft: 1401000061000000
   Input_MoveRight: 1301000064000000
   Input_Interact: 200000000d0000007a000000
+  Input_Restart: 72000000
+  Input_I_Give_Up: 17010000
   InteractCursor: {fileID: 5698576891681907111}
   IsInTutorial: 0
   CanMove: 1
@@ -295,7 +297,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1933834161
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 4259554660099097378, guid: 980cc693df375124f90faa1a01fd4b98,
     type: 3}

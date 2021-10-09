@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1999,16 +1999,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8541512746646730303, guid: 850940eb5d905d8419742b25c62dd2cd,
-        type: 3}
-      propertyPath: PushTime
-      value: 0.0625
-      objectReference: {fileID: 0}
-    - target: {fileID: 8541512746646730303, guid: 850940eb5d905d8419742b25c62dd2cd,
-        type: 3}
-      propertyPath: audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: b143b271bc5713a489f560b7f4945768, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 850940eb5d905d8419742b25c62dd2cd, type: 3}
 --- !u!1001 &168770162
@@ -2226,16 +2216,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8541512746646730303, guid: 850940eb5d905d8419742b25c62dd2cd,
-        type: 3}
-      propertyPath: PushTime
-      value: 0.0625
-      objectReference: {fileID: 0}
-    - target: {fileID: 8541512746646730303, guid: 850940eb5d905d8419742b25c62dd2cd,
-        type: 3}
-      propertyPath: audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 45517d768dc06f143a68a02925d82ed0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 850940eb5d905d8419742b25c62dd2cd, type: 3}
 --- !u!1001 &241516280
@@ -2423,11 +2403,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8541512746646730303, guid: 850940eb5d905d8419742b25c62dd2cd,
-        type: 3}
-      propertyPath: PushTime
-      value: 0.0625
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 850940eb5d905d8419742b25c62dd2cd, type: 3}
@@ -6761,11 +6736,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8541512746646730303, guid: 850940eb5d905d8419742b25c62dd2cd,
-        type: 3}
-      propertyPath: PushTime
-      value: 0.0625
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 850940eb5d905d8419742b25c62dd2cd, type: 3}
 --- !u!4 &1059921429 stripped
@@ -9817,11 +9787,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2977171069878621708, guid: a17766e9aea4f4c4c9e588dcce2d1ca0,
-        type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5698576891584935520, guid: a17766e9aea4f4c4c9e588dcce2d1ca0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9841,21 +9806,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6293941903569217614, guid: a17766e9aea4f4c4c9e588dcce2d1ca0,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6837368323219620830, guid: a17766e9aea4f4c4c9e588dcce2d1ca0,
         type: 3}
       propertyPath: m_Name
       value: PlayerPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 6837368323219620830, guid: a17766e9aea4f4c4c9e588dcce2d1ca0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a17766e9aea4f4c4c9e588dcce2d1ca0, type: 3}
