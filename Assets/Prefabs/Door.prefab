@@ -71,11 +71,11 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 605391465
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4266539449291738496, guid: 5e394e19202d42d47acd2fe8710a0823,
+  m_Sprite: {fileID: -3591878356386442923, guid: 479a0e1b8c614be41ab10a6e1367c5a9,
     type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8}
+  m_Color: {r: 0.7529412, g: 0.7529412, b: 0.7529412, a: 0.49803922}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95,7 +95,7 @@ Animator:
   m_GameObject: {fileID: 2633655474330497911}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f430529c04e77cd479f3bfb0931edc21, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3a15104b88b5305458e3bd2d38628a1f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -128,8 +128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d7b755a534bf1c44930c157b4cecd4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  On: 0
-  OnLastFrame: 0
+  ActivateFrames: 0
+  DeactivateFrames: 0
+  Activated: 0
+  TriggersOn: 0
   Triggers:
   - {fileID: 0}
   - {fileID: 0}
@@ -143,3 +145,5 @@ MonoBehaviour:
   UnlockedColor: {r: 1, g: 1, b: 1, a: 0.8}
   OpenClip: {fileID: 8300000, guid: f5a266280ddd62a4f8e64bb4d751e8cd, type: 3}
   Volume: 1
+  FadeOutTime: 1.5
+  ForceLoadNextLevel: 0
