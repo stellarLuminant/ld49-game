@@ -1,31 +1,41 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Triggerable : MonoBehaviour
 {
-    public bool On;
-    public bool OnLastFrame;
+    private const Int32 ACTIVATE_FRAME_COOLDOWN = 8;
+    
+    public Int32 ActivateFrames = 0;
+    public Int32 DeactivateFrames = 0;
+    public bool Activated;
+    public bool TriggersOn;
     public Trigger[] Triggers;
 
     // Start is called before the first frame update
     private void Start()
     {
-        On = false;
-        OnLastFrame = false;
+        TriggersOn = false;
+    }
+
+    private void TickFrameCooldown()
+    {
+        if (!Activated && ActivateFrames > 0)
+            ActivateFrames -= 1;
+        if (Activated && DeactivateFrames > 0)
+            DeactivateFrames -= 1;
     }
 
     private void CheckTriggers()
     {
-        OnLastFrame = On;
-        On = true;
+        TriggersOn = true;
 
         foreach (Trigger t in Triggers)
         {
             if (!t.On)
             {
-                //Debug.Log("One of the triggers was off");
-                On = false;
+                TriggersOn = false;
                 break;
             }
         }
@@ -33,27 +43,37 @@ public class Triggerable : MonoBehaviour
 
     private void RunTriggerable()
     {
-        if (On)
-        {
-            if (OnLastFrame)
+        if (TriggersOn) {
+            if (Activated) {
                 OnTriggerOn();
-            else
-                OnTriggerActivate();
+                return;
+            }
 
-            return;
+            if (ActivateFrames > 0)
+                return;
+
+            Activated = true;
+            ActivateFrames = ACTIVATE_FRAME_COOLDOWN;
+            OnTriggerActivate();
         }
+        else {
+            if (!Activated) {
+                OnTriggerOff();
+                return;
+            }
 
-        if (OnLastFrame)
-        {
+            if (DeactivateFrames > 0)
+                return;
+
+            Activated = false;
+            DeactivateFrames = ACTIVATE_FRAME_COOLDOWN;
             OnTriggerDeactivate();
-            return;
         }
-
-        OnTriggerOff();
     }
 
     private void FixedUpdate()
     {
+        TickFrameCooldown();
         CheckTriggers();
         RunTriggerable();
     }

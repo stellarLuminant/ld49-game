@@ -47,8 +47,6 @@ public class Door : Triggerable
         //_renderer.sprite = UnlockedSprite;
         _renderer.color = UnlockedColor;
 
-        Debug.Log("uwu");
-
         Audio audio = EazySoundManager.GetAudio(_audioId);
         if (audio == null)
         {

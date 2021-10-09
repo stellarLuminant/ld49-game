@@ -28,11 +28,17 @@ public class Trigger : MonoBehaviour
     private void FixedUpdate()
     {
         var collider = Utils.CastForObjectOnTile(Utils.ToGridPosition(transform.position));
-        if (collider && collider.CompareTag("Player"))
-        {
+
+        if (!collider) {
+            On = false;
             return;
         }
 
-        On = collider != null;
+        if (collider.CompareTag("Player")) {
+            On = false;
+            return;
+        }
+
+        On = true;
     }
 }
